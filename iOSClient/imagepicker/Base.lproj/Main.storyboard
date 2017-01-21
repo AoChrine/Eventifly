@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gll-Hb-OuI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="MainController" id="BYZ-38-t0r" customClass="ViewController" customModule="imagepicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ut-bY-SEm">
+                                <rect key="frame" x="31" y="440" width="312" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="label" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hPl-Od-BQa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="face" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="STx-9L-19e">
+                                <rect key="frame" x="0.0" y="101" width="375" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-lw-cEv">
+                                <rect key="frame" x="177" y="387" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-cI-U98">
+                                <rect key="frame" x="91" y="187" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose an image to analyze"/>
+                                <connections>
+                                    <action selector="loadImageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Kv-Mu-qCR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hth-fK-g9Q">
+                                <rect key="frame" x="127" y="237" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take a picture"/>
+                                <connections>
+                                    <action selector="takePicButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dWk-mp-Nec"/>
+                                    <segue destination="CLN-1T-6Hf" kind="show" identifier="showTakePicViewController" id="orY-f6-FO7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="yMD-qr-m2g"/>
+                    <connections>
+                        <outlet property="faceResults" destination="STx-9L-19e" id="Yv0-8N-Nj0"/>
+                        <outlet property="imageView" destination="2Ut-bY-SEm" id="pff-E4-rB8"/>
+                        <outlet property="labelResults" destination="hPl-Od-BQa" id="ZIt-Vv-ykD"/>
+                        <outlet property="spinner" destination="1eZ-lw-cEv" id="8RT-oq-9u5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1338.4000000000001" y="386.35682158920542"/>
+        </scene>
+        <!--TakePicViewController-->
+        <scene sceneID="N2U-ox-g9W">
+            <objects>
+                <viewController title="TakePicViewController" id="CLN-1T-6Hf" customClass="TakePictureViewController" customModule="imagepicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9w5-2Z-bTr"/>
+                        <viewControllerLayoutGuide type="bottom" id="chP-8O-qTg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9gx-OV-Vwa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-Sn-aZT">
+                                <rect key="frame" x="127" y="511" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Take Pic"/>
+                                <connections>
+                                    <action selector="takePic:" destination="CLN-1T-6Hf" eventType="touchUpInside" id="HhR-FU-oHc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="cameraView" destination="9gx-OV-Vwa" id="NCt-X1-zfe"/>
+                        <outlet property="takePicOutlet" destination="zqM-Sn-aZT" id="iFE-sg-Mh5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ko5-pN-jTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173.5999999999999" y="385.45727136431788"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fAK-pL-CgW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gll-Hb-OuI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zmQ-XF-amW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GnY-hb-DZa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mmy-Wy-qtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="387"/>
+        </scene>
+    </scenes>
+</document>

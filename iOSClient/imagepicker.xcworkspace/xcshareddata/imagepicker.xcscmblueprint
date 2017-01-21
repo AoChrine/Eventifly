@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D218749FF35E47F11FCBF654C0977945278CFB7C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D218749FF35E47F11FCBF654C0977945278CFB7C" : 9223372036854775807,
+    "0A09B2F3CAF843698A136CC5B05F497CBD192731" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "60AB0DFE-CD41-40DC-973A-A0C52D8F8A8B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D218749FF35E47F11FCBF654C0977945278CFB7C" : "cloud-vision\/",
+    "0A09B2F3CAF843698A136CC5B05F497CBD192731" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "imagepicker",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/Swift\/imagepicker.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:chrineal\/Eventifly.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0A09B2F3CAF843698A136CC5B05F497CBD192731"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/GoogleCloudPlatform\/cloud-vision.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D218749FF35E47F11FCBF654C0977945278CFB7C"
+    }
+  ]
+}
