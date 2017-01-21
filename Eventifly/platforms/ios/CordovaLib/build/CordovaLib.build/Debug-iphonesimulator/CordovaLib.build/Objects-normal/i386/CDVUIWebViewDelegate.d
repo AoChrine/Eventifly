@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/maxzhao/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.m \
-  /Users/maxzhao/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.h \
-  /Users/maxzhao/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h \
-  /Users/maxzhao/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h
+  /Users/Aou/Desktop/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.m \
+  /Users/Aou/Desktop/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Private/Plugins/CDVUIWebViewEngine/CDVUIWebViewDelegate.h \
+  /Users/Aou/Desktop/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Public/CDVAvailability.h \
+  /Users/Aou/Desktop/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Public/CDVAvailabilityDeprecated.h

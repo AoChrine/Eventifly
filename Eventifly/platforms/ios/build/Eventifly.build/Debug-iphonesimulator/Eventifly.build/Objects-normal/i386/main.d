@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/maxzhao/Eventifly/Eventifly/platforms/ios/Eventifly/main.m
+  /Users/Aou/Desktop/Eventifly/Eventifly/platforms/ios/Eventifly/main.m

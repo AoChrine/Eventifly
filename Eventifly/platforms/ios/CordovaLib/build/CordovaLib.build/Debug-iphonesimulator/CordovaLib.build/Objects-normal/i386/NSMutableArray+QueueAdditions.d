@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/maxzhao/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.m \
-  /Users/maxzhao/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.h
+  /Users/Aou/Desktop/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.m \
+  /Users/Aou/Desktop/Eventifly/Eventifly/platforms/ios/CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.h

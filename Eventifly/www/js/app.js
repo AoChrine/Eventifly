@@ -5,27 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic', 'ngCordova'])
 
-app.controller('MainCtrl', function($scope, $cordovaCamera) {
-    $scope.takeImage = function() {
-        var options = {
-            quality: 80,
-            destinationType: Camera.DestinationType.DATA_URL,
-            sourceType: Camera.PictureSourceType.CAMERA,
-            allowEdit: true,
-            encodingType: Camera.EncodingType.JPEG,
-            targetWidth: 250,
-            targetHeight: 250,
-            popoverOptions: CameraPopoverOptions,
-            saveToPhotoAlbum: false
-        };
-         
-        $cordovaCamera.getPicture(options).then(function(imageData) {
-            $scope.srcImage = "data:image/jpeg;base64," + imageData;
-        }, function(err) {
-            // error
-        });
-    }
-});
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -44,3 +23,57 @@ app.controller('MainCtrl', function($scope, $cordovaCamera) {
     }
   });
 })
+
+Eventifly.controller('PictureController', function($scope, $cordovaCamera) {
+
+  document.addEventListener("deviceready", function () {
+
+    var options = {
+      quality: 50,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 100,
+      targetHeight: 100,
+      popoverOptions: CameraPopoverOptions,
+      saveToPhotoAlbum: false,
+    correctOrientation:true
+    };
+
+    $cordovaCamera.getPicture(options).then(function(imageData) {
+      var image = document.getElementById('myImage');
+      image.src = "data:image/jpeg;base64," + imageData;
+      $scope.imgURI = "data:image/jpeg;base64," + imageData;
+    }, function(err) {
+      // error
+    });
+
+  }, false);
+});
+
+// Eventifly.controller("ExampleController", function($scope, $cordovaCamera) {
+ 
+//     $scope.takePicture = function() {
+//         var options = { 
+//             quality : 75, 
+//             destinationType : Camera.DestinationType.DATA_URL, 
+//             sourceType : Camera.PictureSourceType.CAMERA, 
+//             allowEdit : true,
+//             encodingType: Camera.EncodingType.JPEG,
+//             targetWidth: 300,
+//             targetHeight: 300,
+//             popoverOptions: CameraPopoverOptions,
+//             saveToPhotoAlbum: false
+//         };
+ 
+//         $cordovaCamera.getPicture(options).then(function(imageData) {
+//             $scope.imgURI = "data:image/jpeg;base64," + imageData;
+//         }, function(err) {
+//             // An error occured. Show a message to the user
+//         });
+//     }
+ 
+// });
+
+
