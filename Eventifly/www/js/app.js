@@ -5,8 +5,26 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic', 'ngCordova'])
 
-app.controller('MainCtrl', function($scope, $cordovaCamera){
-
+app.controller('MainCtrl', function($scope, $cordovaCamera) {
+    $scope.takeImage = function() {
+        var options = {
+            quality: 80,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: Camera.PictureSourceType.CAMERA,
+            allowEdit: true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 250,
+            targetHeight: 250,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
+         
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+            $scope.srcImage = "data:image/jpeg;base64," + imageData;
+        }, function(err) {
+            // error
+        });
+    }
 });
 
 .run(function($ionicPlatform) {
