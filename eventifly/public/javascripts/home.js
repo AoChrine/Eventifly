@@ -28,11 +28,15 @@ $(function () {
 });
 
 function test(){
-  FB.login();
-
-  FB.api('/search?type=event&q=HackUCSC', function(response) {
-  console.log(response);
-});
+  FB.login(function(response){
+    if(response.status === 'connected'){
+        FB.api('/search?type=event&q=HackUCSC', function(response) {
+        console.log(response);
+        });
+    }else{
+      FB.login();
+    }
+  });
 }
 
 
