@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='initial-scale=1.0, user-scalable=no')
+    meta(charset='utf-8')
+    title Home
+    // stylesheets
+    link(href='../stylesheets/style.css', rel='stylesheet', type='text/css')
+    link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(href='stylesheets/style.css', rel='stylesheet')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css')
+    // scripts
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-1.7.1.min.js')
+    script(src='../javascripts/home.js', type='text/javascript')
+  body
+    body
+      form#fileform(action='')
+        select(name='type')
+          option(value='LANDMARK_DETECTION') LANDMARK_DETECTION
+          option(value='TYPE_UNSPECIFIED') TYPE_UNSPECIFIED
+          option(value='FACE_DETECTION') FACE_DETECTION
+          option(value='LOGO_DETECTION') LOGO_DETECTION
+          option(value='LABEL_DETECTION') LABEL_DETECTION
+          option(value='TEXT_DETECTION') TEXT_DETECTION
+          option(value='SAFE_SEARCH_DETECTION') SAFE_SEARCH_DETECTION
+          option(value='IMAGE_PROPERTIES') IMAGE_PROPERTIES
+        br
+        input(type='file', name='fileField')
+        br
+        br
+        input(type='submit', name='submit', value='Submit')
+        br
+      input(type='button', value='facebooktest', onclick= "test()")  
+      code#results(style='white-space:pre')
+    #results
