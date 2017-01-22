@@ -21,6 +21,8 @@ class EventViewController: UIViewController {
     
     //var posts = [Post]()
     var savedEventId: String = ""
+    var eventStartTime: String = ""
+    var eventEndTime: String = ""
     
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -90,10 +92,16 @@ class EventViewController: UIViewController {
                 
                 
                 self.nameLabel.text = resArray[0]
-                let timestr1 = resArray[2]
-                let timestr2 = resArray[3]
+                let startIndex1 = resArray[2].index(resArray[2].startIndex, offsetBy: 0)
+                let endIndex1 = resArray[2].index(resArray[2].startIndex, offsetBy: 15)
+                let startIndex2 = resArray[3].index(resArray[3].startIndex, offsetBy: 0)
+                let endIndex2 = resArray[3].index(resArray[3].startIndex, offsetBy: 15)
+                self.eventStartTime = resArray[2][startIndex1...endIndex1]
+                self.eventEndTime = resArray[3][startIndex2...endIndex2]
+//                let timestr1 = resArray[2]
+//                let timestr2 = resArray[3]
                 let timestr3 = " to "
-                self.timeLabel.text = timestr1 + timestr3 + timestr2
+                self.timeLabel.text = self.eventStartTime + timestr3 + self.eventEndTime
                 self.locationLabel.text = resArray[4]
                 self.descriptionLabel.text = resArray[1]
             })
@@ -121,18 +129,23 @@ class EventViewController: UIViewController {
     
     @IBAction func AddtoGoogleCalendar(_ sender: Any) {
         
-        let startDate = NSDate()
-        let endDate = startDate.addingTimeInterval(60*60) //event is one hour
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
         
+        
+        let startDate: Date = dateFormatter.date(from: eventStartTime)!
+        
+        let endDate: Date = dateFormatter.date(from: eventEndTime)!
+        let eventTitle: String = self.nameLabel.text!
         
         if(EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized) {
             eventStore.requestAccess(to: .event, completion: { (granted, error) in
                     //code to get permission
-                self.createEvent(eventStore: eventStore, title: "hardcoded title", startDate: startDate, endDate: endDate)
+                self.createEvent(eventStore: eventStore, title: eventTitle, startDate: startDate, endDate: endDate)
             })
         }else{
             //call create event and add permission
-            createEvent(eventStore: eventStore, title: "hardcoded title", startDate: startDate, endDate: endDate)
+            createEvent(eventStore: eventStore, title: eventTitle, startDate: startDate, endDate: endDate)
             
         }
         
@@ -142,7 +155,7 @@ class EventViewController: UIViewController {
         self.present(signupAlertController, animated: true, completion: nil)
     }
     
-    func createEvent(eventStore: EKEventStore, title: String, startDate: NSDate, endDate: NSDate) {
+    func createEvent(eventStore: EKEventStore, title: String, startDate: Date, endDate: Date) {
         let event = EKEvent(eventStore: eventStore)
         event.title = title
         event.startDate = startDate as Date
