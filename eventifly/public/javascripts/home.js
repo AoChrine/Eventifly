@@ -40,6 +40,11 @@ var config = {
       // var database = firebase.database();
       var storageRef = storage.ref();
       var imgRef = storageRef.child('myImage.png');
+
+
+
+    function imgRec(){
+
       firebase.auth().signInAnonymously().then(function() {
         imgRef.getDownloadURL().then(function(url){
           document.querySelector('img').src = url; 
@@ -57,6 +62,17 @@ var config = {
           console.error(error);
         });
       });
+
+      setTimeout(imgRec, 4000);
+      string = "/search?type=event&q=";
+      JSONstring = "";
+
+
+                            // firebase.app().delete();
+
+    }
+
+      imgRec();
 
 // var storage = firebase.storage();
 // var storageRef = storage.ref();
@@ -179,6 +195,7 @@ function sendFileToCloudVision (url) {
 
 // var JSONres = [];
 var JSONstring = "";
+var bool = 0;
 
 function displayJSON (data) {
   var contents = JSON.stringify(data, null, 4);
@@ -213,10 +230,30 @@ function displayJSON (data) {
           JSONstring += response.data[0].place.name;
           // console.log(JSONres);
           console.log(JSONstring);
+
           firebase.initializeApp(config);
-           firebase.database().ref('myArray').set({
+            firebase.database().ref('myArray').set({
             JSONstring
-          });
+            });
+
+            // bool += '1';
+
+          // if(bool = 0){
+          //   firebase.initializeApp(config);
+          //   firebase.database().ref('myArray').set({
+          //   JSONstring
+          // });
+          //   console.log("before setting to 1" + bool);
+          //   bool = 1;
+          //   console.log("after setting to 1" + bool);
+          // }else{
+          //   firebase.database().ref('myArray').set({
+          //   JSONstring
+          // });
+          //   console.log("inside else" + bool);
+          // }
+
+    
           
 });
     }else{
@@ -254,7 +291,6 @@ function woo(){
 }
 
 function init(){
-  window.alert("sometext");
   console.log("in home.js");
 }
 

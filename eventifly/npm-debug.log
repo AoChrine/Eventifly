@@ -9,8 +9,8 @@
 6 silly lifecycle eventifly@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle eventifly@0.0.0~start: eventifly@0.0.0
 8 verbose lifecycle eventifly@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle eventifly@0.0.0~start: PATH: /Users/maxzhao/.npm-packages/lib/node_modules/npm/bin/node-gyp-bin:/Users/maxzhao/Eventifly/eventifly/node_modules/.bin:/Users/maxzhao/.npm-packages/bin:/Users/maxzhao/.npm-packages/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin
-10 verbose lifecycle eventifly@0.0.0~start: CWD: /Users/maxzhao/Eventifly/eventifly
+9 verbose lifecycle eventifly@0.0.0~start: PATH: /Users/maxzhao/.npm-packages/lib/node_modules/npm/bin/node-gyp-bin:/Users/maxzhao/Eventifly/Eventifly/node_modules/.bin:/Users/maxzhao/.npm-packages/bin:/Users/maxzhao/.npm-packages/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin
+10 verbose lifecycle eventifly@0.0.0~start: CWD: /Users/maxzhao/Eventifly/Eventifly
 11 silly lifecycle eventifly@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle eventifly@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle eventifly@0.0.0~start: Failed to exec start script
@@ -25,7 +25,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:821:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid eventifly@0.0.0
-16 verbose cwd /Users/maxzhao/Eventifly/eventifly
+16 verbose cwd /Users/maxzhao/Eventifly/Eventifly
 17 error Darwin 15.0.0
 18 error argv "/usr/local/bin/node" "/Users/maxzhao/.npm-packages/bin/npm" "start"
 19 error node v5.5.0
