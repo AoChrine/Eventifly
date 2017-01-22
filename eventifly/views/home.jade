@@ -10,10 +10,16 @@ html
     link(href='stylesheets/style.css', rel='stylesheet')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css')
     // scripts
+    script(src='https://www.gstatic.com/firebasejs/3.6.6/firebase.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     script(type='text/javascript', src='http://code.jquery.com/jquery-1.7.1.min.js')
     script(src='../javascripts/home.js', type='text/javascript')
+    script(src='https://www.gstatic.com/firebasejs/3.6.2/firebase-app.js')
+    script(src='https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js')
+    script(src='https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+
   body
     body
       form#fileform(action='')
@@ -32,6 +38,13 @@ html
         br
         input(type='submit', name='submit', value='Submit')
         br
-      input(type='button', value='facebooktest', onclick= "test()")  
+      input(type='button', value='facebooktest', onclick= "test()") 
+      h1 Hello people !
+      input#user(type='TEXT', size='40')
+      br
+      input#password(type='password', size='40')
+      br
+      input#lit(type='button', value='submit', onclick="woo()")
+      img(height='100%', width='100%')
       code#results(style='white-space:pre')
     #results
