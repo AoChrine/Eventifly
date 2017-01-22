@@ -14,8 +14,8 @@
 
 import UIKit
 import SwiftyJSON
-
-
+import Firebase
+import FirebaseStorage
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let imagePicker = UIImagePickerController()
@@ -24,12 +24,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var labelResults: UITextView!
-    @IBOutlet weak var faceResults: UITextView!
+   // @IBOutlet weak var faceResults: UITextView!
     
     var googleAPIKey = "AIzaSyDLAgnwLn2tRtPS2WCALXdf3oBEiX6cfCg"
     var googleURL: URL {
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
+//    var googleURL: URL {
+//        return URL(string: "http://httpbin.org")!
+//    }
+
     
     
 //    override var prefersStatusBarHidden: Bool {
@@ -37,7 +41,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //    }
     
     @IBAction func takePicButtonTapped(_ sender: Any) {
+        
+        
+        
     }
+    
     
     @IBAction func loadImageButtonTapped(_ sender: UIButton) {
         imagePicker.allowsEditing = false
@@ -63,8 +71,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Do any additional setup after loading the view, typically from a nib.
         imagePicker.delegate = self
         labelResults.isHidden = true
-        faceResults.isHidden = true
+      //  faceResults.isHidden = true
         spinner.hidesWhenStopped = true
+        
+
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 /// Image processing
 
+
 extension ViewController {
     
     func analyzeResults(_ dataToParse: Data) {
@@ -86,13 +99,14 @@ extension ViewController {
             
             // Use SwiftyJSON to parse results
             let json = JSON(data: dataToParse)
+            print(json)
             let errorObj: JSON = json["error"]
             
             self.spinner.stopAnimating()
             self.imageView.isHidden = false
             self.labelResults.isHidden = false
-            self.faceResults.isHidden = false
-            self.faceResults.text = ""
+      //      self.faceResults.isHidden = false
+      //      self.faceResults.text = ""
             
             // Check for errors
             if (errorObj.dictionaryValue != [:]) {
@@ -109,7 +123,7 @@ extension ViewController {
                     
                     let numPeopleDetected:Int = faceAnnotations.count
                     
-                    self.faceResults.text = "People detected: \(numPeopleDetected)\n\nEmotions detected:\n"
+                    //self.faceResults.text = "People detected: \(numPeopleDetected)\n\nEmotions detected:\n"
                     
                     var emotionTotals: [String: Double] = ["sorrow": 0, "joy": 0, "surprise": 0, "anger": 0]
                     var emotionLikelihoods: [String: Double] = ["VERY_LIKELY": 0.9, "LIKELY": 0.75, "POSSIBLE": 0.5, "UNLIKELY":0.25, "VERY_UNLIKELY": 0.0]
@@ -128,10 +142,10 @@ extension ViewController {
                     for (emotion, total) in emotionTotals {
                         let likelihood:Double = total / Double(numPeopleDetected)
                         let percent: Int = Int(round(likelihood * 100))
-                        self.faceResults.text! += "\(emotion): \(percent)%\n"
+                        //self.faceResults.text! += "\(emotion): \(percent)%\n"
                     }
                 } else {
-                    self.faceResults.text = "No faces found"
+                    //self.faceResults.text = "No faces found"
                 }
                 
                 // Get text annotations
@@ -166,8 +180,25 @@ extension ViewController {
             imageView.contentMode = .scaleAspectFit
             imageView.image = pickedImage // You could optionally display the image here by setting imageView.image = pickedImage
             spinner.startAnimating()
-            faceResults.isHidden = true
+            //faceResults.isHidden = true
             labelResults.isHidden = true
+            
+            
+            let storageRef = FIRStorage.storage().reference().child("myImage.png")
+            if let uploadData = UIImagePNGRepresentation(pickedImage) {
+                storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                    if error != nil {
+                        print(error ?? "error")
+                        return
+                    }
+                    
+                    print(metadata ?? "none")
+                })
+            }
+            
+            //jump
+            
+            performSegue(withIdentifier: "showEventViewController", sender: nil)
             
             // Base64 encode the image and create the request
             let binaryImageData = base64EncodeImage(pickedImage)
@@ -215,6 +246,7 @@ extension ViewController {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        
         
         // Build our API request
         let jsonRequest = [

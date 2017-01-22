@@ -9,31 +9,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainController-->
+        <!--MainViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="MainController" id="BYZ-38-t0r" customClass="ViewController" customModule="imagepicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="imagepicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ut-bY-SEm">
-                                <rect key="frame" x="31" y="440" width="312" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="label" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hPl-Od-BQa">
                                 <rect key="frame" x="0.0" y="64" width="375" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="face" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="STx-9L-19e">
-                                <rect key="frame" x="0.0" y="101" width="375" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -44,17 +33,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkD-cI-U98">
-                                <rect key="frame" x="91" y="187" width="193" height="30"/>
+                                <rect key="frame" x="48" y="491" width="281" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Choose an image to analyze"/>
                                 <connections>
                                     <action selector="loadImageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Kv-Mu-qCR"/>
+                                    <segue destination="yQG-0V-6LX" kind="show" identifier="showEventViewController" id="aJm-2S-u5Y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hth-fK-g9Q">
-                                <rect key="frame" x="127" y="237" width="120" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ut-bY-SEm">
+                                <rect key="frame" x="40" y="275" width="312" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Take a picture"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainMenu.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wnp-aG-YeJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hth-fK-g9Q">
+                                <rect key="frame" x="48" y="548" width="275" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="takePicButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dWk-mp-Nec"/>
                                     <segue destination="CLN-1T-6Hf" kind="show" identifier="showTakePicViewController" id="orY-f6-FO7"/>
@@ -65,8 +62,8 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="yMD-qr-m2g"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="faceResults" destination="STx-9L-19e" id="Yv0-8N-Nj0"/>
                         <outlet property="imageView" destination="2Ut-bY-SEm" id="pff-E4-rB8"/>
                         <outlet property="labelResults" destination="hPl-Od-BQa" id="ZIt-Vv-ykD"/>
                         <outlet property="spinner" destination="1eZ-lw-cEv" id="8RT-oq-9u5"/>
@@ -88,13 +85,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-Sn-aZT">
-                                <rect key="frame" x="127" y="511" width="121" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-Sn-aZT">
+                                <rect key="frame" x="149" y="559" width="76" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Take Pic"/>
+                                <state key="normal" title="Take Pic" image="circle.png"/>
                                 <connections>
                                     <action selector="takePic:" destination="CLN-1T-6Hf" eventType="touchUpInside" id="HhR-FU-oHc"/>
+                                    <segue destination="yQG-0V-6LX" kind="show" identifier="showEventViewController" id="Fba-S8-PZk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -110,6 +107,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ko5-pN-jTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2173.5999999999999" y="385.45727136431788"/>
+        </scene>
+        <!--EventViewController-->
+        <scene sceneID="gDz-Af-2kT">
+            <objects>
+                <viewController title="EventViewController" id="yQG-0V-6LX" customClass="EventViewController" customModule="imagepicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pJA-Ut-lJV"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Xb-JP-OWd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0gP-Et-QvM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-Ew-Max">
+                                <rect key="frame" x="50" y="490" width="280" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add to Calendar"/>
+                                <connections>
+                                    <action selector="AddtoGoogleCalendar:" destination="yQG-0V-6LX" eventType="touchUpInside" id="SNM-Ky-oLW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQi-Rv-zCV">
+                                <rect key="frame" x="50" y="551" width="275" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Main Menu"/>
+                                <connections>
+                                    <action selector="backToMainMenu:" destination="yQG-0V-6LX" eventType="touchUpInside" id="Qe9-W4-M3h"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showMainViewController" id="WAc-nH-1Hs"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EventInfo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dpR-iR-otx">
+                                <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Processing..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taJ-DO-4VG">
+                                <rect key="frame" x="50" y="146" width="275" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Processing..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oty-Rw-XUC">
+                                <rect key="frame" x="50" y="274" width="275" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Processing..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuS-gn-ZgO">
+                                <rect key="frame" x="50" y="210" width="275" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Processing..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaf-rS-oXs">
+                                <rect key="frame" x="50" y="338" width="275" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="xaf-rS-oXs" id="9HC-aH-Ylo"/>
+                        <outlet property="locationLabel" destination="KuS-gn-ZgO" id="Mdb-Bv-u5r"/>
+                        <outlet property="nameLabel" destination="taJ-DO-4VG" id="xiw-hQ-34w"/>
+                        <outlet property="timeLabel" destination="oty-Rw-XUC" id="Hby-ok-sTZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="URw-bS-Up0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2853.5999999999999" y="385.45727136431788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fAK-pL-CgW">
@@ -130,4 +203,13 @@
             <point key="canvasLocation" x="440" y="387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="EventInfo.jpg" width="750" height="1334"/>
+        <image name="MainMenu.jpg" width="750" height="1334"/>
+        <image name="circle.png" width="1024" height="1024"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WAc-nH-1Hs"/>
+        <segue reference="aJm-2S-u5Y"/>
+    </inferredMetricsTieBreakers>
 </document>

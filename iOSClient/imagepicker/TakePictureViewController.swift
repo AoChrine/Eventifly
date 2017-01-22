@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import Firebase
+import FirebaseStorage
 
 class TakePictureViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -69,8 +71,6 @@ class TakePictureViewController: UIViewController, UINavigationControllerDelegat
                 captureSession!.startRunning()
             }
         }
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,9 +93,22 @@ class TakePictureViewController: UIViewController, UINavigationControllerDelegat
                     let image = UIImage(cgImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.right)
                     //self.capturedImage.image = image
                     print("took picture")
+                    let storageRef = FIRStorage.storage().reference().child("myImage.png")
+                    if let uploadData = UIImagePNGRepresentation(image) {
+                        storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                            if error != nil {
+                                print(error ?? "error")
+                                return
+                            }
+                            
+                            print(metadata ?? "none")
+                        })
+                    }
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+
                 }
             })
         }
     }
-    
-   }
+}
+
